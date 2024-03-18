@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #000000FF;
+            display: flex;
+            height: 100vh;
+        }
+        .container{
+            margin: auto;
+        }
+        #calculator {
+            /* width: 40vh; */
+            border-radius: 20px;
+            border: 5px solid #ccc;
+            padding: 15px;
+        }
+        button{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 3px;
+            font-size: 1.2em;
+            border: 0;
+        }
+        #equal{
+            width: 125px;
+            border-radius:60px;
+        }
+        .orange{
+            background-color: #EE9406FF;
+            color: #fff;
+        }
+        button:active{
+            box-shadow: 0 0 10px #ccc;
+        }
+        input{
+            background-color: #ccc;
+            border: 0;
+            padding: 10px;
+            width: 240px;
+            margin:25px 5px;
+            color: #000;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="calculator">
+            <input type="text" id="display" disabled />
+            <div>
+                <button onclick="del()">AC</button>
+                <button onclick="slicee()">🠔</button>
+                <button onclick="numbers('%')">%</button>
+                <button class="orange" onclick="numbers('/')">/</button>
+            </div>
+            <div>
+                <button onclick="numbers('7')">7</button>
+                <button onclick="numbers('8')">8</button>
+                <button onclick="numbers('9')">9</button>
+                <button class="orange" onclick="numbers('*')">X</button>
+            </div>
+            <div>
+                <button onclick="numbers('4')">4</button>
+                <button onclick="numbers('5')">5</button>
+                <button onclick="numbers('6')">6</button>
+                <button class="orange" onclick="numbers('-')">-</button>
+            </div>
+            <div>
+                <button onclick="numbers('1')">1</button>
+                <button onclick="numbers('2')">2</button>
+                <button onclick="numbers('3')">3</button>
+                <button class="orange" onclick="numbers('+')">+</button>
+            </div>
+            <div>
+                <button onclick="numbers('')">.</button>
+                <button onclick="numbers('0')">0</button>
+                <button onclick="calcc()" id="equal">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const display = document.querySelector("#display");
+        function numbers(x){
+            display.value += x;
+        }
+        function calcc(){
+            display.value = eval(display.value);
+        }
+        function del(){
+            display.value = '';
+        }
+        function slicee(){
+            display.value = display.value.slice(0,-1)
+        }
+    </script>
+</body>
+
+</html>
